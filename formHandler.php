@@ -23,6 +23,30 @@
       <td><?php echo $_POST['answerA']?></td>      
     </tr>
     <tr>
+      <td width="20%">questionB</td>
+      <td><?php echo $_POST['questionB']?></td>      
+    </tr>
+    <tr>
+      <td width="20%">answerB</td> 
+      <td><?php echo $_POST['answerB']?></td>      
+    </tr>
+    <tr>
+      <td width="20%">questionC</td>
+      <td><?php echo $_POST['questionC']?></td>      
+    </tr>
+    <tr>
+      <td width="20%">answerC</td> 
+      <td><?php echo $_POST['answerC']?></td>      
+    </tr>
+    <tr>
+      <td width="20%">questionD</td>
+      <td><?php echo $_POST['questionD']?></td>      
+    </tr>
+    <tr>
+      <td width="20%">answerD</td> 
+      <td><?php echo $_POST['answerD']?></td>      
+    </tr>
+    <tr>
       <td width="20%">submit</td>
       <td><?PHP ECHO $_POST['submit']?></td>      
     </tr>    

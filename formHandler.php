@@ -15,36 +15,28 @@
       <td align="center"><string>Value</string></td>
     </tr>
     <tr>
-      <td width="20%">questionA</td>
-      <td><?php echo $_POST['questionA']?></td>      
+      <td width="20%">Multiple Choice - Question</td>
+      <td><?php echo $_POST['multipleChoiceQuestion']?></td>      
     </tr>
     <tr>
-      <td width="20%">answerA</td> 
-      <td><?php echo $_POST['answerA']?></td>      
+      <td width="20%">Multiple Choice - Answer</td> 
+      <td><?php echo $_POST['multipleChoiceAnswer']?></td>      
     </tr>
     <tr>
-      <td width="20%">questionB</td>
-      <td><?php echo $_POST['questionB']?></td>      
+      <td width="20%">True or False - Question</td>
+      <td><?php echo $_POST['trueOrFalseQuestion']?></td>      
     </tr>
     <tr>
-      <td width="20%">answerB</td> 
-      <td><?php echo $_POST['answerB']?></td>      
+      <td width="20%">True or False - Answer</td> 
+      <td><?php echo $_POST['trueOrFalseAnswer']?></td>      
     </tr>
     <tr>
-      <td width="20%">questionC</td>
-      <td><?php echo $_POST['questionC']?></td>      
+      <td width="20%">Short Answer - Question/td>
+      <td><?php echo $_POST['shortAnswerAnswer']?></td>      
     </tr>
     <tr>
-      <td width="20%">answerC</td> 
-      <td><?php echo $_POST['answerC']?></td>      
-    </tr>
-    <tr>
-      <td width="20%">questionD</td>
-      <td><?php echo $_POST['questionD']?></td>      
-    </tr>
-    <tr>
-      <td width="20%">answerD</td> 
-      <td><?php echo $_POST['answerD']?></td>      
+      <td width="20%">Short Answer - Answer</td> 
+      <td><?php echo $_POST['shortAnswerAnswer']?></td>      
     </tr>
     <tr>
       <td width="20%">submit</td>

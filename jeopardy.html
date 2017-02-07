@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Jeopardy!</title>
+    <script type="text/javascript"> 
+      function setFocus() {
+      document.getElementById("options").focus();
+      }
+
+      function changeForm(dropdown) {
+      if (dropdown.value == "optionA") {
+      document.getElementById("optionA").style.display='inline';
+      document.getElementById("optionB").style.display='none';
+      }
+      else if (dropdown.value == "optionB") {
+      document.getElementById("optionA").style.display='none';
+      document.getElementById("optionB").style.display='inline';
+      }
+      else {
+      document.getElementById("optionA").style.display='none';
+      document.getElementById("optionB").style.display='none';
+      }
+      }
+
+      function validateForm() {
+      var x = document.getElementById("options").value;
+      
+      if(x == "optionA"){
+      var y = document.forms["optionA"]["questionA"].value;
+      var z = document.forms["optionA"]["answerA"].value;
+      if(y == "" || z == ""){
+      alert("Please fill in all fields");
+      return false;
+      }
+      else return true;
+      }
+      else {
+      var y = document.forms["optionB"]["questionB"].value;
+      var z = document.forms["optionB"]["answerB"].value;
+      if(y == "" || z == ""){
+      alert("Please fill in all fields");
+      return false;
+      }
+      else return true;
+      }
+      
+      }
+    </script>     
+  </head>
+ 
+  <body onload="setFocus()">
+    
+    <h1>Choose Question Type</h1>
+    
+    <h2>Question Type</h2>
+    Choose the type of question you'd like to create:
+    
+    <!-- DROPDOWN QUESTION SELECTION -->
+    <select id="options" onchange="changeForm(this)">
+      <option value="default"></option>
+      <option value="optionA">Option A</option> 
+      <option value="optionB">Option B</option> 
+    </select>
+
+    <!-- FORM A -->
+    <form name='optionA' id='optionA' method='post' action='http://localhost/CS_4640/formHandler.php' onsubmit='return validateForm()' style='display:none'>
+      <br> Question A <br>
+      <input type='text' name='questionA' id='questionA'>
+      <br> <br> Answer A <br>
+      <textarea name='answerA' id='answerA' cols='40' rows='5'></textarea>
+      <input type='submit' value='Submit' name='submit'>
+      <input type='reset' value ='Clear'>
+    </form>
+    
+    <!-- FORM B -->
+    <form name='optionB' id='optionB' method='post' action='formHandler.php' onsubmit='return validateForm()' style='display:none'>
+      <br> Question B <br>
+      <input type='text' name='questionB' id='questionB'>
+      <br> <br> Answer B <br>
+      <textarea name='answerB' id='answerB' cols='40' rows='5'></textarea>
+      <input type='submit' value='Submit' name='submit'>
+      <input type='reset' value='Clear'>
+    </form>    
+  </body>
+</html>

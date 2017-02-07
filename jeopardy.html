@@ -9,71 +9,52 @@
     }
 
     function changeForm(dropdown) {
-      if (dropdown.value == "optionA") {
-        document.getElementById("optionA").style.display='inline';
-        document.getElementById("optionB").style.display='none';
-        document.getElementById("optionC").style.display='none';
-        document.getElementById("optionD").style.display='none';
+      if (dropdown.value == "multipleChoice") {
+        document.getElementById("multipleChoice").style.display='inline';
+        document.getElementById("trueOrFalse").style.display='none';
+        document.getElementById("shortAnswer").style.display='none';
       }
-      else if (dropdown.value == "optionB") {
-        document.getElementById("optionA").style.display='none';
-        document.getElementById("optionB").style.display='inline';
-        document.getElementById("optionC").style.display='none';
-        document.getElementById("optionD").style.display='none';
+      else if (dropdown.value == "trueOrFalse") {
+        document.getElementById("multipleChoice").style.display='none';
+        document.getElementById("trueOrFalse").style.display='inline';
+        document.getElementById("shortAnswer").style.display='none';
       }
-      else if (dropdown.value == "optionC") {
-        document.getElementById("optionA").style.display='none';
-        document.getElementById("optionB").style.display='none';
-        document.getElementById("optionC").style.display='inline';
-        document.getElementById("optionD").style.display='none';
-      }
-      else if (dropdown.value == "optionD") {
-        document.getElementById("optionA").style.display='none';
-        document.getElementById("optionB").style.display='none';
-        document.getElementById("optionC").style.display='none';
-        document.getElementById("optionD").style.display='inline';
+      else if (dropdown.value == "shortAnswer") {
+        document.getElementById("multipleChoice").style.display='none';
+        document.getElementById("trueOrFalse").style.display='none';
+        document.getElementById("shortAnswer").style.display='inline';
       }
       else {
-        document.getElementById("optionA").style.display='none';
-        document.getElementById("optionB").style.display='none';
-        document.getElementById("optionC").style.display='none';
-        document.getElementById("optionD").style.display='none';
+        document.getElementById("multipleChoice").style.display='none';
+        document.getElementById("trueOrFalse").style.display='none';
+        document.getElementById("shortAnswer").style.display='none';
       }
     }
 
     function validateForm() {
       var x = document.getElementById("options").value;
       
-      if(x == "optionA") {
-        var y = document.forms["optionA"]["questionA"].value;
-        var z = document.forms["optionA"]["answerA"].value;
+      if(x == "multipleChoice") {
+        var y = document.forms["multipleChoice"]["multipleChoiceQuestion"].value;
+        var z = document.forms["multipleChoice"]["multipleChoiceAnswer"].value;
         if(y == "" || z == ""){
           alert("Please fill in all fields");
           return false;
         }
         else return true;
       }
-      else if(x == "optionB") {
-        var y = document.forms["optionB"]["questionB"].value;
-        var z = document.forms["optionB"]["answerB"].value;
+      else if(x == "trueOrFalse") {
+        var y = document.forms["trueOrFalse"]["trueOrFalseQuestion"].value;
+        var z = document.forms["trueOrFalse"]["trueOrFalseAnswer"].value;
         if(y == "" || z == ""){
           alert("Please fill in all fields");
           return false;
         }
         else return true;
       }
-      else if(x == "optionC") {
-        var y = document.forms["optionC"]["questionC"].value;
-        var z = document.forms["optionC"]["answerC"].value;
-        if(y == "" || z == ""){
-          alert("Please fill in all fields");
-          return false;
-        }
-        else return true;
-      }
-      else if(x == "optionD") {
-        var y = document.forms["optionD"]["questionD"].value;
-        var z = document.forms["optionD"]["answerD"].value;
+      else if(x == "shortAnswer") {
+        var y = document.forms["shortAnswer"]["shortAnswerQuestion"].value;
+        var z = document.forms["shortAnswer"]["shortAnswerAnswer"].value;
         if(y == "" || z == ""){
           alert("Please fill in all fields");
           return false;
@@ -94,50 +75,42 @@
   <!-- DROPDOWN QUESTION SELECTION -->
   <select id="options" onchange="changeForm(this)">
     <option value="default"></option>
-    <option value="optionA">Option A</option> 
-    <option value="optionB">Option B</option> 
-    <option value="optionC">Option C</option> 
-    <option value="optionD">Option D</option> 
+    <option value="multipleChoice">Multiple Choice</option> 
+    <option value="trueOrFalse">True or False</option> 
+    <option value="shortAnswer">Short Answer</option> 
   </select>
 
-  <!-- FORM A -->
-  <form name='optionA' id='optionA' method='post' action='formHandler.php' onsubmit='return validateForm()' style='display:none'>
-    <br> Question A <br>
-    <input type='text' name='questionA' id='questionA'>
-    <br> <br> Answer A <br>
-    <textarea name='answerA' id='answerA' cols='40' rows='5'></textarea>
+  <!-- FORM multiple choice -->
+  <form name='multipleChoice' id='multipleChoice' method='post' action='formHandler.php' onsubmit='return validateForm()' style='display:none'>
+    <br> Multiple Choice - Question <br>
+    <input type='text' name='multipleChoiceQuestion' id='multipleChoiceQuestion'>
+    <br> <br> Multiple Choice - Answer <br>
+    <textarea name='multipleChoiceAnswer' id='multipleChoiceAnswer' cols='40' rows='5'></textarea>
+    <br>
     <input type='submit' value='Submit' name='submit'>
     <input type='reset' value ='Clear'>
   </form>
   
-  <!-- FORM B -->
-  <form name='optionB' id='optionB' method='post' action='formHandler.php' onsubmit='return validateForm()' style='display:none'>
-    <br> Question B <br>
-    <input type='text' name='questionB' id='questionB'>
-    <br> <br> Answer B <br>
-    <textarea name='answerB' id='answerB' cols='40' rows='5'></textarea>
+  <!-- FORM true or false -->
+  <form name='trueOrFalse' id='trueOrFalse' method='post' action='formHandler.php' onsubmit='return validateForm()' style='display:none'>
+    <br> True or False - Question <br>
+    <input type='text' name='trueOrFalseQuestion' id='trueOrFalseQuestion'>
+    <br> <br> True Or False - Answer <br>
+    <textarea name='trueOrFalseAnswer' id='trueOrFalseAnswer' cols='40' rows='5'></textarea>
+    <br>
     <input type='submit' value='Submit' name='submit'>
     <input type='reset' value='Clear'>
   </form>    
 
-  <!-- FORM C -->
-  <form name='optionC' id='optionC' method='post' action='formHandler.php' onsubmit='return validateForm()' style='display:none'>
-    <br> Question C <br>
-    <input type='text' name='questionC' id='questionC'>
-    <br> <br> Answer C <br>
-    <textarea name='answerC' id='answerC' cols='40' rows='5'></textarea>
+  <!-- FORM short answer -->
+  <form name='shortAnswer' id='shortAnswer' method='post' action='formHandler.php' onsubmit='return validateForm()' style='display:none'>
+    <br> Short Answer - Question <br>
+    <input type='text' name='shortAnswerQuestion' id='shortAnswerQuestion'>
+    <br> <br> Short Answer - Answer <br>
+    <textarea name='shortAnswerAnswer' id='shortAnswerAnswer' cols='40' rows='5'></textarea>
+    <br>
     <input type='submit' value='Submit' name='submit'>
     <input type='reset' value ='Clear'>
-  </form>
-
-  <!-- FORM B -->
-  <form name='optionD' id='optionD' method='post' action='formHandler.php' onsubmit='return validateForm()' style='display:none'>
-    <br> Question D <br>
-    <input type='text' name='questionD' id='questionD'>
-    <br> <br> Answer D <br>
-    <textarea name='answerD' id='answerD' cols='40' rows='5'></textarea>
-    <input type='submit' value='Submit' name='submit'>
-    <input type='reset' value='Clear'>
   </form>
 
 </body>

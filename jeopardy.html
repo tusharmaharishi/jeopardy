@@ -8,6 +8,10 @@
       document.getElementById("options").focus();
     }
 
+    function isItTrue() {
+
+    }
+
     function changeForm(dropdown) {
       if (dropdown.value == "multipleChoice") {
         document.getElementById("multipleChoice").style.display='inline';
@@ -36,8 +40,11 @@
       
       if(x == "multipleChoice") {
         var y = document.forms["multipleChoice"]["multipleChoiceQuestion"].value;
-        var z = document.forms["multipleChoice"]["multipleChoiceAnswer"].value;
-        if(y == "" || z == ""){
+        var z = document.forms["multipleChoice"]["multipleChoiceAnswer1"].value;
+        var a = document.forms["multipleChoice"]["multipleChoiceAnswer2"].value;
+        var b = document.forms["multipleChoice"]["multipleChoiceAnswer3"].value;
+        var c = document.forms["multipleChoice"]["multipleChoiceAnswer4"].value;
+        if(y == "" || z == "" || a == "" || b == "" || c == ""){
           alert("Please fill in all fields");
           return false;
         }
@@ -45,8 +52,9 @@
       }
       else if(x == "trueOrFalse") {
         var y = document.forms["trueOrFalse"]["trueOrFalseQuestion"].value;
-        var z = document.forms["trueOrFalse"]["trueOrFalseAnswer"].value;
-        if(y == "" || z == ""){
+        var z = document.getElementById("trueOrFalseAnswer1").checked;
+        var a = document.getElementById("trueOrFalseAnswer2").checked;
+        if(y == "" || (z == false && a == false)){
           alert("Please fill in all fields");
           return false;
         }
@@ -82,10 +90,13 @@
 
   <!-- FORM multiple choice -->
   <form name='multipleChoice' id='multipleChoice' method='post' action='formHandler.php' onsubmit='return validateForm()' style='display:none'>
-    <br> Multiple Choice - Question <br>
+    <br> Please enter a Multiple Choice question <br>
     <input type='text' name='multipleChoiceQuestion' id='multipleChoiceQuestion'>
-    <br> <br> Multiple Choice - Answer <br>
-    <textarea name='multipleChoiceAnswer' id='multipleChoiceAnswer' cols='40' rows='5'></textarea>
+    <br> <br> Please enter all possible options for the multiple choice question above. <br>
+    A. <input type='text' name='multipleChoiceAnswer1' id='multipleChoiceAnswer1'> <br>
+    B. <input type='text' name='multipleChoiceAnswer2' id='multipleChoiceAnswer2'> <br>
+    C. <input type='text' name='multipleChoiceAnswer3' id='multipleChoiceAnswer3'> <br>
+    D. <input type='text' name='multipleChoiceAnswer4' id='multipleChoiceAnswer4'> <br>
     <br>
     <input type='submit' value='Submit' name='submit'>
     <input type='reset' value ='Clear'>
@@ -93,10 +104,11 @@
   
   <!-- FORM true or false -->
   <form name='trueOrFalse' id='trueOrFalse' method='post' action='formHandler.php' onsubmit='return validateForm()' style='display:none'>
-    <br> True or False - Question <br>
+    <br> Please enter a True or False statement <br>
     <input type='text' name='trueOrFalseQuestion' id='trueOrFalseQuestion'>
-    <br> <br> True Or False - Answer <br>
-    <textarea name='trueOrFalseAnswer' id='trueOrFalseAnswer' cols='40' rows='5'></textarea>
+    <br> <br> Please indicate whether the statement above is true or false. <br>
+    True <input type='radio' name='trueOrFalseAnswer' id='trueOrFalseAnswer1' >  &nbsp; &nbsp; &nbsp; &nbsp;
+    False <input type='radio' name='trueOrFalseAnswer' id='trueOrFalseAnswer2' >
     <br>
     <input type='submit' value='Submit' name='submit'>
     <input type='reset' value='Clear'>
@@ -104,9 +116,9 @@
 
   <!-- FORM short answer -->
   <form name='shortAnswer' id='shortAnswer' method='post' action='formHandler.php' onsubmit='return validateForm()' style='display:none'>
-    <br> Short Answer - Question <br>
+    <br> Please enter a short answer question <br>
     <input type='text' name='shortAnswerQuestion' id='shortAnswerQuestion'>
-    <br> <br> Short Answer - Answer <br>
+    <br> <br> Please enter an answer to the above question. <br>
     <textarea name='shortAnswerAnswer' id='shortAnswerAnswer' cols='40' rows='5'></textarea>
     <br>
     <input type='submit' value='Submit' name='submit'>

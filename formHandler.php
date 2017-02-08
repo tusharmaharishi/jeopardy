@@ -20,7 +20,19 @@
     </tr>
     <tr>
       <td width="20%">Multiple Choice - Answer</td> 
-      <td><?php echo $_POST['multipleChoiceAnswer']?></td>      
+      <td><?php echo $_POST['multipleChoiceAnswer1']?></td>      
+    </tr>
+    <tr>
+      <td width="20%">Multiple Choice - Answer</td> 
+      <td><?php echo $_POST['multipleChoiceAnswer2']?></td>      
+    </tr>
+    <tr>
+      <td width="20%">Multiple Choice - Answer</td> 
+      <td><?php echo $_POST['multipleChoiceAnswer3']?></td>      
+    </tr>
+    <tr>
+      <td width="20%">Multiple Choice - Answer</td> 
+      <td><?php echo $_POST['multipleChoiceAnswer4']?></td>      
     </tr>
     <tr>
       <td width="20%">True or False - Question</td>
@@ -28,10 +40,14 @@
     </tr>
     <tr>
       <td width="20%">True or False - Answer</td> 
-      <td><?php echo $_POST['trueOrFalseAnswer']?></td>      
+      <td><?php echo $_POST['trueOrFalseAnswer1']?></td>      
     </tr>
     <tr>
-      <td width="20%">Short Answer - Question/td>
+      <td width="20%">True or False - Answer</td> 
+      <td><?php echo $_POST['trueOrFalseAnswer2']?></td>      
+    </tr>
+    <tr>
+      <td width="20%">Short Answer - Question</td>
       <td><?php echo $_POST['shortAnswerAnswer']?></td>      
     </tr>
     <tr>

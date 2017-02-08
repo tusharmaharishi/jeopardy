@@ -13,57 +13,44 @@
     }
 
     function changeForm(dropdown) {
-      if (dropdown.value == "multipleChoice") {
-        document.getElementById("multipleChoice").style.display='inline';
-        document.getElementById("trueOrFalse").style.display='none';
-        document.getElementById("shortAnswer").style.display='none';
-      }
-      else if (dropdown.value == "trueOrFalse") {
-        document.getElementById("multipleChoice").style.display='none';
-        document.getElementById("trueOrFalse").style.display='inline';
-        document.getElementById("shortAnswer").style.display='none';
-      }
-      else if (dropdown.value == "shortAnswer") {
-        document.getElementById("multipleChoice").style.display='none';
-        document.getElementById("trueOrFalse").style.display='none';
-        document.getElementById("shortAnswer").style.display='inline';
-      }
-      else {
-        document.getElementById("multipleChoice").style.display='none';
-        document.getElementById("trueOrFalse").style.display='none';
-        document.getElementById("shortAnswer").style.display='none';
+      var questionTypes = ["multipleChoice", "trueOrFalse", "shortAnswer"];
+      for(i = 0; i < questionTypes.length; i++) {
+        if(dropdown.value == questionTypes[i])
+          document.getElementById(questionTypes[i]).style.display='inline';
+        else
+          document.getElementById(questionTypes[i]).style.display='none';
       }
     }
 
     function validateForm() {
-      var x = document.getElementById("options").value;
+      var questionType = document.getElementById("options").value;
       
-      if(x == "multipleChoice") {
-        var y = document.forms["multipleChoice"]["multipleChoiceQuestion"].value;
-        var z = document.forms["multipleChoice"]["multipleChoiceAnswer1"].value;
-        var a = document.forms["multipleChoice"]["multipleChoiceAnswer2"].value;
-        var b = document.forms["multipleChoice"]["multipleChoiceAnswer3"].value;
-        var c = document.forms["multipleChoice"]["multipleChoiceAnswer4"].value;
-        if(y == "" || z == "" || a == "" || b == "" || c == ""){
+      if(questionType == "multipleChoice") {
+        var question = document.forms["multipleChoice"]["multipleChoiceQuestion"].value;
+        var answerA = document.forms["multipleChoice"]["multipleChoiceAnswer1"].value;
+        var answerB = document.forms["multipleChoice"]["multipleChoiceAnswer2"].value;
+        var answerC = document.forms["multipleChoice"]["multipleChoiceAnswer3"].value;
+        var answerD = document.forms["multipleChoice"]["multipleChoiceAnswer4"].value;
+        if(question == "" || answerA == "" || answerB == "" || answerC == "" || answerD == ""){
           alert("Please fill in all fields");
           return false;
         }
         else return true;
       }
-      else if(x == "trueOrFalse") {
-        var y = document.forms["trueOrFalse"]["trueOrFalseQuestion"].value;
-        var z = document.getElementById("trueOrFalseAnswer1").checked;
-        var a = document.getElementById("trueOrFalseAnswer2").checked;
-        if(y == "" || (z == false && a == false)){
+      else if(questionType == "trueOrFalse") {
+        var question = document.forms["trueOrFalse"]["trueOrFalseQuestion"].value;
+        var answerTrue = document.getElementById("trueOrFalseAnswer1").checked;
+        var answerFalse = document.getElementById("trueOrFalseAnswer2").checked;
+        if(y == "" || (answerTrue == false && answerFalse == false)){
           alert("Please fill in all fields");
           return false;
         }
         else return true;
       }
-      else if(x == "shortAnswer") {
-        var y = document.forms["shortAnswer"]["shortAnswerQuestion"].value;
-        var z = document.forms["shortAnswer"]["shortAnswerAnswer"].value;
-        if(y == "" || z == ""){
+      else if(questionType == "shortAnswer") {
+        var question = document.forms["shortAnswer"]["shortAnswerQuestion"].value;
+        var answer = document.forms["shortAnswer"]["shortAnswerAnswer"].value;
+        if(question == "" || answer == ""){
           alert("Please fill in all fields");
           return false;
         }

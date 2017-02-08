@@ -27,8 +27,11 @@
       <td width="20%">Multiple Choice - Answer</td> 
       <td>
         <?php 
-        if(isset($_POST['multipleChoiceAnswer1']))
-          echo $_POST['multipleChoiceAnswer1']
+        if(isset($_POST['multipleChoiceAnswer1'])) {
+          echo $_POST['multipleChoiceAnswer1'];
+          if($_POST['mc_correct'] == "A")
+            echo " (correct)";
+        }
         ?> 
       </td>      
     </tr>
@@ -36,8 +39,11 @@
       <td width="20%">Multiple Choice - Answer</td> 
       <td>
         <?php 
-        if(isset($_POST['multipleChoiceAnswer2']))
-          echo $_POST['multipleChoiceAnswer2']
+        if(isset($_POST['multipleChoiceAnswer2'])) {
+          echo $_POST['multipleChoiceAnswer2'];
+          if($_POST['mc_correct'] == "B")
+            echo " (correct)";
+        }
         ?>
       </td>      
     </tr>
@@ -45,8 +51,11 @@
       <td width="20%">Multiple Choice - Answer</td> 
       <td>
         <?php 
-        if(isset($_POST['multipleChoiceAnswer3']))
-          echo $_POST['multipleChoiceAnswer3']
+        if(isset($_POST['multipleChoiceAnswer3'])) {
+          echo $_POST['multipleChoiceAnswer3'];
+          if($_POST['mc_correct'] == "C")
+            echo " (correct)";
+        }
         ?>
       </td>      
     </tr>
@@ -54,8 +63,11 @@
       <td width="20%">Multiple Choice - Answer</td> 
       <td>
         <?php 
-        if(isset($_POST['multipleChoiceAnswer4']))
-          echo $_POST['multipleChoiceAnswer4']
+        if(isset($_POST['multipleChoiceAnswer4'])) {
+          echo $_POST['multipleChoiceAnswer4'];
+          if($_POST['mc_correct'] == "D")
+            echo " (correct)";
+        }
         ?>
       </td>      
     </tr>
@@ -109,8 +121,10 @@
       <td width="20%">Short Answer - Answer</td> 
       <td>
         <?php
-        if(isset($_POST['shortAnswerAnswer']))
-         echo $_POST['shortAnswerAnswer']
+        if(isset($_POST['shortAnswerAnswer'])) {
+         echo $_POST['shortAnswerAnswer'];
+         echo " (correct)";
+        }
        ?>
      </td>      
    </tr>

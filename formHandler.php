@@ -16,49 +16,109 @@
     </tr>
     <tr>
       <td width="20%">Multiple Choice - Question</td>
-      <td><?php echo $_POST['multipleChoiceQuestion']?></td>      
+      <td>
+        <?php
+        if(isset($_POST['multipleChoiceQuestion']))
+          echo $_POST['multipleChoiceQuestion']
+        ?>
+      </td>      
     </tr>
     <tr>
       <td width="20%">Multiple Choice - Answer</td> 
-      <td><?php echo $_POST['multipleChoiceAnswer1']?></td>      
+      <td>
+        <?php 
+        if(isset($_POST['multipleChoiceAnswer1']))
+          echo $_POST['multipleChoiceAnswer1']
+        ?> 
+      </td>      
     </tr>
     <tr>
       <td width="20%">Multiple Choice - Answer</td> 
-      <td><?php echo $_POST['multipleChoiceAnswer2']?></td>      
+      <td>
+        <?php 
+        if(isset($_POST['multipleChoiceAnswer2']))
+          echo $_POST['multipleChoiceAnswer2']
+        ?>
+      </td>      
     </tr>
     <tr>
       <td width="20%">Multiple Choice - Answer</td> 
-      <td><?php echo $_POST['multipleChoiceAnswer3']?></td>      
+      <td>
+        <?php 
+        if(isset($_POST['multipleChoiceAnswer3']))
+          echo $_POST['multipleChoiceAnswer3']
+        ?>
+      </td>      
     </tr>
     <tr>
       <td width="20%">Multiple Choice - Answer</td> 
-      <td><?php echo $_POST['multipleChoiceAnswer4']?></td>      
+      <td>
+        <?php 
+        if(isset($_POST['multipleChoiceAnswer4']))
+          echo $_POST['multipleChoiceAnswer4']
+        ?>
+      </td>      
     </tr>
     <tr>
       <td width="20%">True or False - Question</td>
-      <td><?php echo $_POST['trueOrFalseQuestion']?></td>      
+      <td>
+        <?php 
+        if(isset($_POST['trueOrFalseQuestion']))
+          echo $_POST['trueOrFalseQuestion']
+        ?>
+      </td>      
     </tr>
     <tr>
       <td width="20%">True or False - Answer</td> 
-      <td><?php echo $_POST['trueOrFalseAnswer1']?></td>      
+      <td>
+        <?php 
+        if(isset($_POST['trueOrFalseAnswer'])) {
+          $ans = $_POST['trueOrFalseAnswer'];
+          if($ans == 'true')
+            echo "True (correct)";
+          else
+            echo "True";
+        }
+        ?>
+      </td>      
     </tr>
     <tr>
       <td width="20%">True or False - Answer</td> 
-      <td><?php echo $_POST['trueOrFalseAnswer2']?></td>      
+      <td>
+        <?php 
+        if(isset($_POST['trueOrFalseAnswer'])) {
+          $ans = $_POST['trueOrFalseAnswer'];
+          if($ans == 'true')
+            echo "False";
+          else
+            echo "False (correct)";
+        }
+        ?>
+      </td>      
     </tr>
     <tr>
       <td width="20%">Short Answer - Question</td>
-      <td><?php echo $_POST['shortAnswerAnswer']?></td>      
+      <td>
+        <?php 
+        if(isset($_POST['shortAnswerQuestion']))
+          echo $_POST['shortAnswerQuestion']
+        ?>
+      </td>      
     </tr>
     <tr>
       <td width="20%">Short Answer - Answer</td> 
-      <td><?php echo $_POST['shortAnswerAnswer']?></td>      
-    </tr>
-    <tr>
-      <td width="20%">submit</td>
-      <td><?PHP ECHO $_POST['submit']?></td>      
-    </tr>    
-  </table>
+      <td>
+        <?php
+        if(isset($_POST['shortAnswerAnswer']))
+         echo $_POST['shortAnswerAnswer']
+       ?>
+     </td>      
+   </tr>
+   <tr>
+    <td width="20%">submit</td>
+    <td><?PHP ECHO $_POST['submit']?></td>      
+  </tr>    
+</table>
 
 </body>
 </html> 

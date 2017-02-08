@@ -41,7 +41,7 @@
         var question = document.forms["trueOrFalse"]["trueOrFalseQuestion"].value;
         var answerTrue = document.getElementById("trueOrFalseAnswer1").checked;
         var answerFalse = document.getElementById("trueOrFalseAnswer2").checked;
-        if(y == "" || (answerTrue == false && answerFalse == false)){
+        if(question == "" || (answerTrue == false && answerFalse == false)){
           alert("Please fill in all fields");
           return false;
         }
@@ -68,7 +68,7 @@
   Choose the type of question you'd like to create:
   
   <!-- DROPDOWN QUESTION SELECTION -->
-  <select id="options" onchange="changeForm(this)">
+  <select id="options" onchange="changeForm(this)" onload="changeForm(this)">
     <option value="default"></option>
     <option value="multipleChoice">Multiple Choice</option> 
     <option value="trueOrFalse">True or False</option> 
@@ -94,8 +94,8 @@
     <br> Please enter a True or False statement <br>
     <input type='text' name='trueOrFalseQuestion' id='trueOrFalseQuestion'>
     <br> <br> Please indicate whether the statement above is true or false. <br>
-    True <input type='radio' name='trueOrFalseAnswer' id='trueOrFalseAnswer1' >  &nbsp; &nbsp; &nbsp; &nbsp;
-    False <input type='radio' name='trueOrFalseAnswer' id='trueOrFalseAnswer2' >
+    True <input type='radio' name='trueOrFalseAnswer' id='trueOrFalseAnswer1' value='true'>
+    False <input type='radio' name='trueOrFalseAnswer' id='trueOrFalseAnswer2' value='false'>
     <br>
     <input type='submit' value='Submit' name='submit'>
     <input type='reset' value='Clear'>

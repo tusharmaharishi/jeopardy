@@ -2,14 +2,15 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
   <title>Jeopardy!</title>
-  <script type="text/javascript"> 
+  
+  <link rel="stylesheet" href="jeopardy.css" type="text/css"/>
+
+  <script type="text/javascript">
+
     function setFocus() {
       document.getElementById("options").focus();
-    }
-
-    function isItTrue() {
-
     }
 
     function changeForm(dropdown) {
@@ -60,10 +61,11 @@
   </script>     
 </head>
 
+
 <body onload="setFocus()">
 
   <h1>Choose Question Type</h1>
-  
+
   <h2>Question Type</h2>
   Choose the type of question you'd like to create:
   
@@ -120,5 +122,19 @@
     <input type='reset' value ='Clear'>
   </form>
 
-</body>
+  <div class="hosts">
+    <p> Your hosts for today are the lovely Tushar Maharishi and Hannah Pham! <p>
+  </div>
+
+  <!-- <div class="tushar">
+    <img src="tusharhost.jpg" align="right"/>
+  </div>
+
+  <div class="hannah">
+   <img src="hannahhost.jpg" align="right"/>
+  </div> -->
+
+
+  </body>
+
 </html>

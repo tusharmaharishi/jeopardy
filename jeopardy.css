@@ -2,6 +2,7 @@ body {
 	text-align: center;
 	color: #D56D03;
 	margin: 0;
+	font-weight: bold;
 }
 
 html {
@@ -16,15 +17,13 @@ html {
 .hosts {
 	position: fixed;
 	bottom: 0px;
-	right: -300px;
-	margin: 0;
-	display: inline-block;
+	right: 0px;
+	font-size: 14px;
 }
 
 .hosts img {
-	width: 10%;
-	border-radius: 25%;
-	margin: auto;
-	padding: 10px;
 	display: inline-block;
+	padding-left: 10px;
+	width: 100px;
+	border-radius: 50%;
 }

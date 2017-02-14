@@ -1,38 +1,30 @@
 body {
 	text-align: center;
 	color: #D56D03;
+	margin: 0;
+}
+
+html {
 	background: url("jeopardygame.jpg") no-repeat center center fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
-	-o-background-simg {
-		display: block;
-		width: 50px;
-		border: 5px black;
-		border-radius: 50%
-		margin: auto;
-		padding: 10px;ize: cover;
+	-o-background-size: cover;
 	background-size: cover;
-
+	position: relative;
 }
 
 .hosts {
-	bottom: 0;
-	right: 0;
-	text-align: right;
+	position: fixed;
+	bottom: 0px;
+	right: -300px;
+	margin: 0;
+	display: inline-block;
 }
 
-/*.tushar {
-	display: block;
-	width: 50px;
-	border: 5px black;
-	border-radius: 10%
+.hosts img {
+	width: 10%;
+	border-radius: 25%;
 	margin: auto;
+	padding: 10px;
+	display: inline-block;
 }
-
-.hannah {
-	display: block;
-	width: 50px;
-	border: 5px black;
-	border-radius: 10%
-	margin: auto;
-}*/

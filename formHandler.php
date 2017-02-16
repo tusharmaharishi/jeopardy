@@ -133,6 +133,9 @@
     <td><?PHP ECHO $_POST['submit']?></td>      
   </tr>    
 </table>
+</br>
+<button onclick="history.go(-1);">Back </button>
+
 
 </body>
 </html> 

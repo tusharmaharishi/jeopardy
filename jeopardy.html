@@ -8,6 +8,11 @@
   <link rel="stylesheet" href="jeopardy.css" type="text/css"/>
 
   <script type="text/javascript">
+    
+    function onloadMethods() {
+    setFocus();
+    changeForm(document.getElementById("options"));
+    }
 
     function setFocus() {
       document.getElementById("options").focus();
@@ -61,7 +66,12 @@
   </script>     
 </head>
 
-<body onload="setFocus()">
+<body onload="onloadMethods()">
+  <!--
+  <script type="text/javascript">
+    window.onload = function() {setFocus(); changeForm(document.getElementById("options"));};
+  </script>
+  -->
   <div class="container">
     <h1>Choose Question Type</h1>
 
@@ -69,7 +79,7 @@
     Choose the type of question you'd like to create:
 
     <!-- DROPDOWN QUESTION SELECTION -->
-    <select id="options" onchange="changeForm(this)" onload="changeForm(this)">
+    <select id="options" onchange="changeForm(this)">
       <option value="default"></option>
       <option value="multipleChoice">Multiple Choice</option> 
       <option value="trueOrFalse">True or False</option> 

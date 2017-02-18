@@ -1,10 +1,11 @@
 <html>
 <head>
-  <title>Simple form handler</title>
+  <title>Display Page</title>
 </head>
 
 <body bgcolor="#EEEEEE">
-  <center><h2>Simple Form Handler</h2></center>
+
+  <center><h2>Display Page</h2></center>
   <p>
     The following table lists all parameter names and their values that were submitted from your form.
   </p>
@@ -19,7 +20,7 @@
       <td>
         <?php
         if(isset($_POST['multipleChoiceQuestion']))
-          echo $_POST['multipleChoiceQuestion']
+          echo $_POST['multipleChoiceQuestion'];
         ?>
       </td>      
     </tr>
@@ -76,7 +77,7 @@
       <td>
         <?php 
         if(isset($_POST['trueOrFalseQuestion']))
-          echo $_POST['trueOrFalseQuestion']
+          echo $_POST['trueOrFalseQuestion'];
         ?>
       </td>      
     </tr>
@@ -84,6 +85,8 @@
       <td width="20%">True or False - Answer</td> 
       <td>
         <?php 
+	       //$variable = 5;
+	       //file_put_contents("data.txt","FROM TRUE OR FALSE ANSWER", FILE_APPEND | LOCK_EX);
         if(isset($_POST['trueOrFalseAnswer'])) {
           $ans = $_POST['trueOrFalseAnswer'];
           if($ans == 'true')
@@ -113,7 +116,7 @@
       <td>
         <?php 
         if(isset($_POST['shortAnswerQuestion']))
-          echo $_POST['shortAnswerQuestion']
+          echo $_POST['shortAnswerQuestion'];
         ?>
       </td>      
     </tr>
@@ -135,7 +138,13 @@
 </table>
 </br>
 <button onclick="history.go(-1);">Back </button>
-
-
+<!--<button onclick="printToFile()">Confirm & Print to File</button>-->
 </body>
 </html> 
+
+<?php
+  function printToFile2() {
+    $txt = 'Hello World!!!!';
+    file_put_contents('data.txt', $txt.PHP_EOL, FILE_APPEND | LOCK_EX);
+  } 
+?>

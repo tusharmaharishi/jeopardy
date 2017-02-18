@@ -138,13 +138,13 @@
 </table>
 </br>
 <button onclick="history.go(-1);">Back </button>
-<!--<button onclick="printToFile()">Confirm & Print to File</button>-->
+<button onclick="<?php printToFile(); ?>">Confirm & Print to File</button>
 </body>
 </html> 
 
-<?php
-  function printToFile2() {
+<?php  
+  function printToFile() {
     $txt = 'Hello World!!!!';
     file_put_contents('data.txt', $txt.PHP_EOL, FILE_APPEND | LOCK_EX);
-  } 
+  }
 ?>

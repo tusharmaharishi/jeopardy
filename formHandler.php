@@ -131,20 +131,45 @@
        ?>
      </td>      
    </tr>
-   <tr>
+   <!--<tr>
     <td width="20%">submit</td>
     <td><?PHP ECHO $_POST['submit']?></td>      
-  </tr>    
+  </tr>-->    
 </table>
 </br>
 <button onclick="history.go(-1);">Back </button>
-<button onclick="<?php printToFile(); ?>">Confirm & Print to File</button>
+<form method='post' action="formHandler.php" name="functionPrint">
+  <input type="hidden" value="print" name="actionprint" />
+  <button type="button" onclick="window.document.functionPrint.submit()">Confirm and Print to File</button>
+</form>
+<!-- <script type='text/javascript'>
+    
+    //AJAX function
+    function startAjax() {
+      $.ajax({
+        type: "POST",
+        url: "script.php",
+        success: function(msg){
+          alert( "Data Saved: " + msg );
+        }
+      });
+    }
+    
+    //Call AJAX:
+    //$(document).ready(startAjax());
+</script>
+<button onclick="startAjax();">Confirm and Print to File</button> -->
 </body>
 </html> 
 
-<?php  
+<?php
+ 
+if(isset($_POST['actionprint'])) {
+    printToFile();
+  }
+
   function printToFile() {
-    $txt = 'Hello World!!!!';
+    $txt = 'HELLOOOOO';
     file_put_contents('data.txt', $txt.PHP_EOL, FILE_APPEND | LOCK_EX);
   }
 ?>

@@ -37,7 +37,8 @@
         var answerB = document.forms["multipleChoice"]["multipleChoiceAnswer2"].value;
         var answerC = document.forms["multipleChoice"]["multipleChoiceAnswer3"].value;
         var answerD = document.forms["multipleChoice"]["multipleChoiceAnswer4"].value;
-        if(question == "" || answerA == "" || answerB == "" || answerC == "" || answerD == ""){
+        var corrAns = document.forms["multipleChoice"]["mc_correct"].value;
+        if(question == "" || answerA == "" || answerB == "" || answerC == "" || answerD == "" || corrAns == "default"){
           alert("Please fill in all fields");
           return false;
         }

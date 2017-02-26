@@ -8,8 +8,9 @@ body {
 .container {
 	background-color: rgba(0, 0, 0, 0.7);
 	width: 400px;
-	margin-left: 500px;
+	margin-left: 37.5%;
 }
+
 html {
 	background: url("jeopardygame.jpg") no-repeat center center fixed;
 	-webkit-background-size: cover;

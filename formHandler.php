@@ -23,8 +23,8 @@
         <?php
         if(isset($_POST['multipleChoiceQuestion'])) {
            echo $_POST['multipleChoiceQuestion'];
-	   $GLOBALS['information'][] = $_POST['multipleChoiceQuestion']; // same as array.append()
-	   }
+	         $GLOBALS['information'][] = $_POST['multipleChoiceQuestion']; // same as array.append()
+	       }
         ?>
       </td>      
     </tr>
@@ -34,7 +34,7 @@
         <?php 
         if(isset($_POST['multipleChoiceAnswer1'])) {
            echo $_POST['multipleChoiceAnswer1'];
-	   $GLOBALS['information'][] = $_POST['multipleChoiceAnswer1'];
+	         $GLOBALS['information'][] = $_POST['multipleChoiceAnswer1'];
            if($_POST['mc_correct'] == "A")
            echo " (correct)";
         }
@@ -155,8 +155,8 @@
     </tr>
   </table>
 </br>
-<button onclick="history.go(-1);">Back </button>
 <form method='post' action="formHandler.php" name="functionPrint">
+  <button onclick="history.go(-1);">Back </button>
   <input type="hidden" value="<?php echo implode(',',$GLOBALS['information']);?>" name="actionprint" />
   <button type="button" onclick="window.document.functionPrint.submit()">Confirm and Print to File</button>
 </form>
@@ -198,9 +198,10 @@
    }
    
   function printToFile() {
-   $submission_data_arr = explode(',',$_POST['actionprint']);
+   $submission_data_arr = explode(',',$_POST['actionprint']); #change separation values from comma
    foreach($submission_data_arr as &$curr) {
    file_put_contents('data.txt', $curr.PHP_EOL, FILE_APPEND | LOCK_EX);
+   #redirect to confirmation page where we display the file we just printed to and include button back to question page "make another question?"
    }
    }
    /*

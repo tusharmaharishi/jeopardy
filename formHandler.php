@@ -6,13 +6,13 @@
 <body bgcolor="#EEEEEE">
 
   <center><h2>Display Page</h2></center>
-  <p>
-    The following table lists all parameter names and their values that were submitted from your form.
+  <p align="center">
+    The following table displays the question and answers you just created.
   </p>
   <?php
   $GLOBALS['responses'] = array();
   ?>
-  <table cellSpacing=1 cellPadding=1 width="75%" border=1 bgColor="lavender">
+  <table cellSpacing=1 cellPadding=1 width="75%" border=1 bgColor="lavender"  align="center">
     <tr bgcolor="#FFFFFF">
       <td align="center"><strong>Parameter</strong></td>
       <td align="center"><string>Value</string></td>
@@ -179,28 +179,11 @@
 </tr>
 </table>
 </br>
-<form method='post' action="formHandler.php" name="confirmation">
-  <button onclick="history.go(-1);">Back </button>
+<form method='post' action="formHandler.php" name="confirmation"  align="center">
+  <button onclick="history.go(-1);" style="width: 100px; font-size: 16px;">Back </button>
   <input type="hidden" value="<?php echo implode(',',$GLOBALS['responses']);?>" name="actionprint" />
-  <button type="button" onclick="window.document.confirmation.submit()">Confirm and Print to File</button>
+  <button type="button" onclick="window.document.confirmation.submit()" style="width: 300px; font-size: 16px;">Confirm and Print to File</button>
 </form>
-<!-- <script type='text/javascript'>
-    
-    //AJAX function
-    function startAjax() {
-      $.ajax({
-        type: "POST",
-        url: "script.php",
-        success: function(msg){
-          alert( "Data Saved: " + msg );
-        }
-      });
-    }
-    
-    //Call AJAX:
-    //$(document).ready(startAjax());
-</script>
-<button onclick="startAjax();">Confirm and Print to File</button> -->
 </body>
 </html> 
 
@@ -223,11 +206,11 @@ if(isset($_POST['actionprint']))
 
  function printToFile() {
    $submission_data_arr = explode(',',$_POST['actionprint']); #change separation values from comma
+   file_put_contents('data.txt', "".PHP_EOL, FILE_APPEND | LOCK_EX);
    foreach($submission_data_arr as &$curr) {
      file_put_contents('data.txt', $curr.PHP_EOL, FILE_APPEND | LOCK_EX);
    }
-   file_put_contents('data.txt', "".PHP_EOL, FILE_APPEND | LOCK_EX);
-   $url = "http://localhost/CS_4640/jeopardy/confirmation.html"; #hardcoded link :(
+   $url = "http://localhost/CS_4640/jeopardy/confirmation.php"; #hardcoded link :(
    echo "<meta http-equiv='refresh' content='0; url=$url'/>"; #redirect to confirmation page where we display the file we just printed to and include button back to question page "make another question?"
    #echo getcwd()."/jeopardy.html";
  }

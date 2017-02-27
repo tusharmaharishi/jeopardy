@@ -225,9 +225,11 @@ if(isset($_POST['actionprint']))
    $submission_data_arr = explode(',',$_POST['actionprint']); #change separation values from comma
    foreach($submission_data_arr as &$curr) {
      file_put_contents('data.txt', $curr.PHP_EOL, FILE_APPEND | LOCK_EX);
-   #redirect to confirmation page where we display the file we just printed to and include button back to question page "make another question?"
    }
    file_put_contents('data.txt', "".PHP_EOL, FILE_APPEND | LOCK_EX);
+   $url = "http://localhost/CS_4640/jeopardy/confirmation.html"; #hardcoded link :(
+   echo "<meta http-equiv='refresh' content='0; url=$url'/>"; #redirect to confirmation page where we display the file we just printed to and include button back to question page "make another question?"
+   #echo getcwd()."/jeopardy.html";
  }
    /*
    $txt = '';

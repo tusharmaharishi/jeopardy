@@ -181,7 +181,7 @@
 </br>
 <form method='post' action="formHandler.php" name="confirmation"  align="center">
   <button onclick="history.go(-1);" style="width: 100px; font-size: 16px;">Back </button>
-  <input type="hidden" value="<?php echo implode(',',$GLOBALS['responses']);?>" name="actionprint" />
+  <input type="hidden" value="<?php echo implode('~',$GLOBALS['responses']);?>" name="actionprint" />
   <button type="button" onclick="window.document.confirmation.submit()" style="width: 300px; font-size: 16px;">Confirm and Print to File</button>
 </form>
 </body>
@@ -198,14 +198,14 @@ if(isset($_POST['actionprint']))
 {
    /*
    echo "FOUND Ids<br>";
-   $IdArray = explode(',',$_POST['actionprint']);
+   $IdArray = explode('~',$_POST['actionprint']);
    print_r($IdArray);
    */
    printToFile();
  }
 
  function printToFile() {
-   $submission_data_arr = explode(',',$_POST['actionprint']); #change separation values from comma
+   $submission_data_arr = explode('~',$_POST['actionprint']); #change separation values from comma
    file_put_contents('data.txt', "".PHP_EOL, FILE_APPEND | LOCK_EX);
    foreach($submission_data_arr as &$curr) {
      file_put_contents('data.txt', $curr.PHP_EOL, FILE_APPEND | LOCK_EX);

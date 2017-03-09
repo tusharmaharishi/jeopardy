@@ -184,10 +184,11 @@ public class GameCreator extends HttpServlet {
 		// begin HTML page
 		out.println("<html>");
 		out.println("	<head>");
-		out.println("		<title>Position Selector</title>");
+		out.println("		<title>Welcome to Jeopardy!</title>");
 		out.println("	</head>");
 		out.println("	<body>");
-		out.println("		<table border='1' cellspacing='2' cellpadding='5' width='75%' align='center'>");
+		out.println("       <h1 align='center'> Welcome to Jeopardy! </font></h1>");
+		out.println("		<table bgcolor='##3333cc' border='1px solid black' cellspacing='2' cellpadding='5' width='75%' align='center'>");
 
 		// start creating HTML table for game board
 		for(int x = 0; x < board.length; x++) {
@@ -197,7 +198,7 @@ public class GameCreator extends HttpServlet {
 			for(int y = 0; y < board[0].length; y++) {
 
 				// create new column
-				out.println("<td>" + board[x][y] + "</td>");
+				out.println("<td align='center'><font color= '#ffff00'><b>" + board[x][y] + "</b></font></td>");
 			}
 			out.println("</tr>");
 		}

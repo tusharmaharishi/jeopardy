@@ -1,0 +1,67 @@
+.body1 {
+	 background: url("http://localhost:8080/Jeopardy/tv.jpg") no-repeat center center;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+}
+
+.body2 {
+	background: url("http://localhost:8080/Jeopardy/jeopardycolor.jpg") no-repeat center center;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+}
+
+.form-container {
+	width: 85%;
+	margin: 0 auto;
+}
+
+.position, .names {
+	text-align: center;
+}
+
+.position {
+	margin-top: 5%;
+}
+
+.table1 {
+	background-color: rgba(255, 255, 255, 0.75);
+	width: 85%;
+	margin: 0 auto;
+}
+
+.textfield {
+	width: 50px;
+}
+
+.welcome {
+	color: rgba(253,144,45,1);
+}
+
+.table2 {
+	margin-top: 5%;
+	background: rgba(0, 0, 0, 0.75);
+}
+
+.btn1 {
+	margin-left: 35%;
+}
+
+.score {
+	color: rgba(196,105,50,1);
+}
+
+
+
+
+
+
+
+
+
+
+
+

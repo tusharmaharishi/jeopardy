@@ -49,13 +49,15 @@ public class GameCreator extends HttpServlet {
 		out.println("<html>");
 		out.println("	<head>");
 		out.println("		<title>Position Selector</title>");
+		out.println("       <link rel='stylesheet' type='text/css' href='http://localhost:8080/Jeopardy/game.css'>");
 		out.println("	</head>");
-		out.println("	<body>");
-		out.println("		<h1 align='center'>Position Selector</h1>");
-		out.println("		<h3 align='center'>Tushar Maharishi (tm5gf) & Hannah Pham (htp3xj)</h3>");
-		out.println("		<form action='GameCreator' method='post' align='center'>"); // form contains the table
-		out.println("			<table border='1' cellspacing='2' cellpadding='5' width='75%' align='center'>");
-
+		out.println("   <body class='body1'>");
+		out.println("       <div class='form-container'>");
+		out.println("		<h1 class='position'>Position Selector</h1>");
+		out.println("		<h3 class='names'>Tushar Maharishi (tm5gf) & Hannah Pham (htp3xj)</h3>");
+		out.println("		<form class='formbg' action='GameCreator' method='post'>"); // form contains the table
+		out.println("			<table class='table1' border='1' cellspacing='2'>");
+		
 		// initialize variables to help with program
 		int questionCount = 0; // keeps track of which question segment we're on - used for naming input text fields
 		String currLine = sc.nextLine(); // to remove the initial blank line in data.txt and keep track of current line
@@ -71,7 +73,7 @@ public class GameCreator extends HttpServlet {
 				currLine = sc.nextLine(); // drop the "____Question" title in data.txt
 
 				// new column for question/answer, hidden input for question 
-				out.println("	<td>");
+				out.println("	<td style width=475px>");
 				currLine = sc.nextLine();
 				out.println("		<b>Question: </b>" + currLine + "<br>");
 				String questionName = "question" + questionCount;
@@ -96,15 +98,15 @@ public class GameCreator extends HttpServlet {
 				// new column for row position
 				out.println("	</td>");
 				String rowName = "row" + questionCount;
-				out.println("	<td>Row: <input type='text' name='" + rowName + "'></td>");
+				out.println("	<td>Row: <input class='textfield' type='text' name='" + rowName + "'></td>");
 
 				// new column for column position
 				String colName = "col" + questionCount;
-				out.println("	<td>Column: <input type='text' name='" + colName + "'></td>");
+				out.println("	<td>Column: <input class='textfield' type='text' name='" + colName + "'></td>");
 
 				// new column for score
 				String scoreName = "score" + questionCount;
-				out.println("	<td>Score: <input type='text' name='" + scoreName + "'></td>");
+				out.println("	<td>Score: <input class='textfield' type='text' name='" + scoreName + "'></td>");
 				out.println("</tr>");
 			}
 			// increment the counter for each question segment
@@ -115,9 +117,10 @@ public class GameCreator extends HttpServlet {
 		out.println("			</table>");
 		out.println("			<input type='hidden' name='numQuestions' value='" + questionCount + "'>");
 		out.println("			<br>");
-		out.println("			<input type=\"button\" onclick=\"location.href='http://plato.cs.virginia.edu/~tm5gf/CS4640/jeopardy/project3/jeopardy.html';\" value=\"Make another Q/A\" style='font-size: 16px;'/>");
-		out.println("			<input type='submit' value='Create Game' style='font-size: 16px;'>");
+		out.println("			<input class='btn1' type=\"button\" onclick=\"location.href='http://plato.cs.virginia.edu/~tm5gf/CS4640/jeopardy/project3/jeopardy.html';\" value=\"Make another Q/A\" style='font-size: 16px;'/>");
+		out.println("			<input class='btn2' type='submit' value='Create Game' style='font-size: 16px;'>");
 		out.println("		</form>");
+		out.println("       </div>");
 		out.println("	</body>");
 		out.println("</html>");
 
@@ -141,7 +144,7 @@ public class GameCreator extends HttpServlet {
 		File file = new File(filename);
 		FileWriter fw = new FileWriter(file);
 		BufferedWriter outfile = new BufferedWriter(fw);
-		// System.out.println(file.getAbsolutePath()); // check where the file ended up... fix this later
+		 System.out.println(file.getAbsolutePath()); // check where the file ended up... fix this later
 		
 		// store posted data into lists
 		ArrayList<String> questionList = new ArrayList<String>();
@@ -174,7 +177,7 @@ public class GameCreator extends HttpServlet {
 		int[][] board = new int[tableMaxRow][tableMaxCol];
 		for(int x = 0; x < board.length; x++) 
 			for(int y = 0; y < board[0].length; y++)
-				board[x][y] = -1;
+				board[x][y] = 0;
 		
 		// adding the scores to the rows/cols specified from form input
 		for(int i = 0; i < questionCount; i++) {
@@ -185,10 +188,11 @@ public class GameCreator extends HttpServlet {
 		out.println("<html>");
 		out.println("	<head>");
 		out.println("		<title>Welcome to Jeopardy!</title>");
+		out.println("       <link rel='stylesheet' type='text/css' href='http://localhost:8080/Jeopardy/game.css'>");
 		out.println("	</head>");
-		out.println("	<body>");
-		out.println("       <h1 align='center'> Welcome to Jeopardy! </font></h1>");
-		out.println("		<table bgcolor='##3333cc' border='1px solid black' cellspacing='2' cellpadding='5' width='75%' align='center'>");
+		out.println("	<body class='body2'>");
+		out.println("       <h1 align='center' class='welcome'> Welcome to Jeopardy! </font></h1>");
+		out.println("		<table class='table2' border='1px solid black' cellspacing='2' cellpadding='5' width='75%' align='center'>");
 
 		// start creating HTML table for game board
 		for(int x = 0; x < board.length; x++) {
@@ -198,14 +202,17 @@ public class GameCreator extends HttpServlet {
 			for(int y = 0; y < board[0].length; y++) {
 
 				// create new column
-				out.println("<td align='center'><font color= '#ffff00'><b>" + board[x][y] + "</b></font></td>");
+				if(board[x][y] != 0)
+					out.println("<td class='score' align='center'><b>" + board[x][y] + "</b></font></td>");
+				else
+					out.println("<td class='score' align='center'><b>" + "-" + "</b></font></td>");
 			}
 			out.println("</tr>");
 		}
 		out.println("		</table>");
 		out.println("		<br>");
 		out.println("		<div align='center'>");
-		out.println("			<button onclick='history.go(-1);' style='font-size: 16px;' align='center'> Back </button>");
+		out.println("			<button class='backbutton' onclick='history.go(-1);' style='font-size: 16px;' align='center'> Back </button>");
 		out.println("		</div>");
 		
 //		out.println("	Hello world 1<br>");

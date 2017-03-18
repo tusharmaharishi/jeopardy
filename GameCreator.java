@@ -168,7 +168,6 @@ public class GameCreator extends HttpServlet {
 		// finish the HTML page
 		out.println("			<input type='hidden' name='numQuestions' value='" + questionCount + "'>"); // to pass questionCount data to POST
 		out.println("			<br>");
-		out.println("			<input type='text' name='test' id='test'>");
 		out.println("			<input class='btn1' type=\"button\" onclick=\"location.href='http://plato.cs.virginia.edu/~tm5gf/CS4640/jeopardy/project3/jeopardy.html';\" value=\"Make another Q/A\" style='font-size: 16px;'/>");
 		out.println("			<input class='btn2' type='submit' value='Create Game' style='font-size: 16px;'>");
 		out.println("		</form>");

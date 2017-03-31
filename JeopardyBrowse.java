@@ -30,7 +30,7 @@ public class JeopardyBrowse extends HttpServlet
    private static String CreateServlet = "http://localhost:8080/Jeopardy/GameCreator";
    
    // location of all the GameData files
-   private static String GamesDirectoryPath = "/Users/tusharmaharishi/Documents/workspace2/Jeopardy/src/cs4640/GameData/";
+   private static String GamesDirectoryPath = "/Users/hanniephammie/Documents/workspace2/Jeopardy/src/cs4640/GameData/";
    
    // global variable for the user
    private String user;
@@ -127,7 +127,7 @@ public class JeopardyBrowse extends HttpServlet
 		
 		// On Delete
 		if(instruction.equals("d")) {
-			String filename = "/Users/tusharmaharishi/Documents/workspace2/Jeopardy/src/cs4640/GameData/gameData_" + gameID + ".txt";
+			String filename = "/Users/hanniephammie/Documents/workspace2/Jeopardy/src/cs4640/GameData/gameData_" + gameID + ".txt";
 			File file = new File(filename);
 			file.delete();
 			doGet(request, response);
@@ -150,6 +150,7 @@ public class JeopardyBrowse extends HttpServlet
 
 		// head
 		out.println("<head>");
+		out.println("       <link rel='stylesheet' type='text/css' href='http://localhost:8080/Jeopardy/browse.css'>");
 		out.println("   <meta http-equiv='content-type' content='text/xhtml; charset=utf-8'>");
 		out.println("   <title>Browse Games</title>");
 		out.println("</head>");
@@ -161,7 +162,7 @@ public class JeopardyBrowse extends HttpServlet
 		out.println("<body>");
 
 		// Logout ability on every page
-		out.println("  <table width='25%' align='right' bgcolor='#E0E0E0' border='0' cellspacing='2' cellpadding='5'");
+		out.println("  <table width='25%' align='right' border='0' cellspacing='2' cellpadding='5'");
 		out.println("    <tr>");
 		out.println("      <td align='right'>Username:  " + user + "</td>");
 		out.println("      <td>");

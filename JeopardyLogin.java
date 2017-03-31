@@ -22,7 +22,7 @@ public class JeopardyLogin extends HttpServlet {
 	private static String BrowseServlet = "http://localhost:8080/Jeopardy/JeopardyBrowse";
 
 	// the data file containing username and password
-	public static String userCredentials = "/Users/tusharmaharishi/Documents/workspace2/Jeopardy/src/cs4640/userCredentials.txt";
+	public static String userCredentials = "/Users/hanniephammie/Documents/workspace2/Jeopardy/src/cs4640/userCredentials.txt";
 
 	// button that will represent whichever was submit - Login or Register
 	private static String button;
@@ -55,15 +55,19 @@ public class JeopardyLogin extends HttpServlet {
 
 		// begin HTML page
 		out.println("<html>");
+		out.println("       <link rel='stylesheet' type='text/css' href='http://localhost:8080/Jeopardy/login.css'>");
+
 
 		// head
 		out.println("<head>");
+		out.println("<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>");
+		out.println("<link href='http://allfont.net/allfont.css?fonts=gyparody' rel='stylesheet' type='text/cs' />");
 		out.println("  <title>Jeopardy Login Page</title>");
 		out.println("</head>");
 
 		// body
 		out.println("<body onLoad='setFocus()' >");
-		out.println("<b><center><h1>Welcome to Jeopardy!<h1></center></b>");
+		out.println("<b><center><h1 class='welcome-header'>Welcome to Jeopardy!<h1></center></b>");
 		out.println("<br/><br/>");
 
 //		String locked = ((String)session.getAttribute("Locked"));
@@ -88,6 +92,7 @@ public class JeopardyLogin extends HttpServlet {
 		}
 
 		// Login page for returning users
+		out.println("<div class='login-container'>");
 		out.println("<form method='post' action='" + LoginServlet + "' id='login' name='login'>");
 		out.println("  <table Cellspacing='0' Cellpadding='3' Border='0' >");
 		out.println("    <tr><td colspan='4'><b>Returning Users:</b></td></tr>");
@@ -102,13 +107,15 @@ public class JeopardyLogin extends HttpServlet {
 		out.println("    </tr>");
 		out.println("  </table>");
 		out.println("</form>");
-
+		out.println("</div>");
+		
 		// spacing and line
 		out.println("<br />");
 		out.println("<hr />");
 		out.println("<br />");
 
 		// Register new user
+		out.println("<div class='signup-container'>");
 		out.println("<form method='post' action='" + LoginServlet + "' id='register' name='register'>");
 		out.println("  <table Cellspacing='0' Cellpadding='3' Border='0' >");
 		out.println("    <tr><td colspan='4'><b>Register New User:</b></td></tr>");
@@ -127,6 +134,7 @@ public class JeopardyLogin extends HttpServlet {
 		out.println("    </tr>");
 		out.println("  </table>");
 		out.println("</form>");
+		out.println("</div>");
 
 		out.println("<br />");
 		out.println("<hr />");

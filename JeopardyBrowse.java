@@ -48,7 +48,7 @@ public class JeopardyBrowse extends HttpServlet
 			response.sendRedirect(LoginServlet);
 		
 		// assume new game until otherwise
-		session.setAttribute("NewGame", "true");
+		session.setAttribute("NewGame", "true"); 
 		session.setAttribute("UpdateGame", "false");
 		
 		// whatever is received will be produced into an html document
@@ -104,8 +104,9 @@ public class JeopardyBrowse extends HttpServlet
 		if(instruction.equals("n")) {
 			session.setAttribute("NewGame",  "true");
 			session.setAttribute("UpdateGame",  "false");
-			session.setAttribute("FirstLoad",  "true");
+			session.setAttribute("FirstLoad",  "true"); 
 			response.sendRedirect(CreateServlet);
+			return;
 		}
 		
 		// On Update
@@ -115,6 +116,7 @@ public class JeopardyBrowse extends HttpServlet
 			session.setAttribute("UpdateGame", "true");
 			session.setAttribute("FirstLoad",  "true");
 			response.sendRedirect(CreateServlet);
+			return;
 		}
 		
 		// On Play
@@ -129,6 +131,7 @@ public class JeopardyBrowse extends HttpServlet
 			File file = new File(filename);
 			file.delete();
 			doGet(request, response);
+			return;
 		}
 		
 		// A page should never be loaded, but just in case - begin HTML page
@@ -202,6 +205,7 @@ public class JeopardyBrowse extends HttpServlet
 					gameIDs.add(gameID); // add gameID to list of gameIDs, used in doPost() to determine which gameID to send to GameCreator
 					out.println("    Owner: " + owner + "<br>");
 					out.println("    GameID: " + gameID + "<br>");
+					
 					String disabled = (owner.equals(user) ? "" : "disabled"); // disable update/delete if the current user is not the creator of those games
 					out.println("    <input type='submit' name='u" + gameID + "' id='u" + gameID + "' value='Update' " + disabled + ">");
 					out.println("    <input type='submit' name='p" + gameID + "' id='p" + gameID + "' value='Play' disabled>");

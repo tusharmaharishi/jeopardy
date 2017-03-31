@@ -250,7 +250,7 @@ public class JeopardyLogin extends HttpServlet {
 			Scanner scanner = new Scanner(new BufferedReader(new FileReader(userCredentials)));
 			while (scanner.hasNextLine()) {
 				String line = scanner.nextLine();
-				String existing_user = line.substring(0, line.indexOf(";"));
+				String existing_user = line.substring(0, line.indexOf(";")); 
 				if (userid.equals(existing_user)) {
 					isDuplicate = true;
 					break;

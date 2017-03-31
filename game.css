@@ -7,11 +7,12 @@
 }
 
 .body2 {
-	background: url("http://localhost:8080/Jeopardy/jeopardycolor.jpg") no-repeat center center;
+	background: url("http://localhost:8080/Jeopardy/board.jpg") no-repeat center center;
      -webkit-background-size: cover;
      -moz-background-size: cover;
      -o-background-size: cover;
      background-size: cover;
+     height: 700px;
 }
 
 .form-container {
@@ -32,7 +33,7 @@
 }
 
 .table1 {
-	background-color: rgba(255, 255, 255, 0.75);
+	background-color: rgba(255, 255, 255, 0.5);
 	width: 85%;
 	margin: 0 auto;
 }
@@ -42,7 +43,7 @@
 }
 
 .welcome {
-	color: rgba(253,144,45,1);
+	color: rgba(196,105,50,1);
 }
 
 .table2 {
@@ -54,7 +55,14 @@
 	color: rgba(196,105,50,1);
 }
 
+.logout-table {
+	background-color: rgba(255, 255, 255, 0.5);
+	color: 
+}
 
+.logout-text {
+	color: rgba(196,105,50,1);
+}
 
 
 

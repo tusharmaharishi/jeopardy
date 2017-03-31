@@ -76,7 +76,7 @@ public class GameCreator extends HttpServlet {
 		// create hashmap of (question) --> (answers, row, col, score) to access and place previous board's values
 		HashMap<String, ArrayList<String>> prevFile = new HashMap<String, ArrayList<String>>();
 		if(updateGame) { // only necessary for Updates
-			String filename = "/Users/tusharmaharishi/Documents/workspace2/Jeopardy/src/cs4640/GameData/gameData_" + GameID + ".txt";
+			String filename = "/Users/hanniephammie/Documents/workspace2/Jeopardy/src/cs4640/GameData/gameData_" + GameID + ".txt";
 			
 			// scan through the game data file for its question;answers;row;col;score data
 			Scanner sc = new Scanner(new File(filename));
@@ -319,7 +319,7 @@ public class GameCreator extends HttpServlet {
 		out.println("	<head>");
 		
 		// input validation - gameID's must be unique! There can be no duplicates! (ignore on Updates)
-		String filename = "/Users/tusharmaharishi/Documents/workspace2/Jeopardy/src/cs4640/GameData/gameData_" + gameID + ".txt"; // hardcoded path
+		String filename = "/Users/hanniephammie/Documents/workspace2/Jeopardy/src/cs4640/GameData/gameData_" + gameID + ".txt"; // hardcoded path
 		Path filepath = Paths.get(filename);
 		boolean updateGame = Boolean.parseBoolean((String)session.getAttribute("UpdateGame"));
 		if(Files.exists(filepath) && !updateGame) { 
@@ -430,7 +430,7 @@ public class GameCreator extends HttpServlet {
 		out.println("	<body class='body2'>");
 		
 		// logout functionality on every page
-		out.println("  <table width='25%' align='right' bgcolor='#E0E0E0' border='0' cellspacing='2' cellpadding='5'");
+		out.println("  <table class='logout-table' width='25%' align='right' border='0' cellspacing='2' cellpadding='5'");
 		out.println("    <tr>");
 		out.println("      <td align='right'>Username:  " + user + "</td>");
 		out.println("      <td>");

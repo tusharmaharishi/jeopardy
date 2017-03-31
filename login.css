@@ -1,0 +1,24 @@
+body {
+	background-color: #021072;
+	color: #d69f4c;
+	font-family: 'Lato', sans-serif;
+}
+
+.welcome-header {
+	padding-top: 20px;
+	font-family: 'Gyparody', arial;
+	font-size: 50px;
+}
+
+.login-container {
+	padding-left: 10%;
+	width: 50%;
+	margin: 0 auto;
+}
+
+.signup-container {
+	padding-left: 10%;
+	width: 50%;
+	margin: 0 auto;
+}
+

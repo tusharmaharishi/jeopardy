@@ -1,6 +1,3 @@
-//package cs4640.session;
-package cs4640;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -22,7 +19,7 @@ public class JeopardyLogin extends HttpServlet {
 	private static String BrowseServlet = "http://localhost:8080/Jeopardy/JeopardyBrowse";
 
 	// the data file containing username and password
-	public static String userCredentials = "/Users/hanniephammie/Documents/workspace2/Jeopardy/src/cs4640/userCredentials.txt";
+	public static String userCredentials = "/Users/tusharmaharishi/Documents/workspace2/Jeopardy/src/userCredentials.txt";
 
 	// button that will represent whichever was submit - Login or Register
 	private static String button;

@@ -1,6 +1,3 @@
-//package examples.session;
-package cs4640;
-
 import java.io.IOException;
 
 import javax.servlet.ServletException;

@@ -1,5 +1,3 @@
-//package examples.session;
-package cs4640;
 
 import javax.servlet.*; 
 import javax.servlet.http.*;
@@ -28,9 +26,10 @@ public class JeopardyBrowse extends HttpServlet
    private static String LogoutServlet = "http://localhost:8080/Jeopardy/JeopardyLogout";
    private static String BrowseServlet = "http://localhost:8080/Jeopardy/JeopardyBrowse";
    private static String CreateServlet = "http://localhost:8080/Jeopardy/GameCreator";
+   private static String StartGameJSP = "http://localhost:8080/Jeopardy/StartGame.jsp";
    
    // location of all the GameData files
-   private static String GamesDirectoryPath = "/Users/hanniephammie/Documents/workspace2/Jeopardy/src/cs4640/GameData/";
+   private static String GamesDirectoryPath = "/Users/tusharmaharishi/Documents/workspace2/Jeopardy/src/GameData/";
    
    // global variable for the user
    private String user;
@@ -121,13 +120,15 @@ public class JeopardyBrowse extends HttpServlet
 		
 		// On Play
 		if(instruction.equals("p")) {
+			session.setAttribute("filename",  "gameData_" + gameID);
+			response.sendRedirect(StartGameJSP);
 			// to be completed in the next assignment...
 		}
 			
 		
 		// On Delete
 		if(instruction.equals("d")) {
-			String filename = "/Users/hanniephammie/Documents/workspace2/Jeopardy/src/cs4640/GameData/gameData_" + gameID + ".txt";
+			String filename = "/Users/tusharmaharishi/Documents/workspace2/Jeopardy/src/GameData/gameData_" + gameID + ".txt";
 			File file = new File(filename);
 			file.delete();
 			doGet(request, response);
@@ -209,7 +210,7 @@ public class JeopardyBrowse extends HttpServlet
 					
 					String disabled = (owner.equals(user) ? "" : "disabled"); // disable update/delete if the current user is not the creator of those games
 					out.println("    <input type='submit' name='u" + gameID + "' id='u" + gameID + "' value='Update' " + disabled + ">");
-					out.println("    <input type='submit' name='p" + gameID + "' id='p" + gameID + "' value='Play' disabled>");
+					out.println("    <input type='submit' name='p" + gameID + "' id='p" + gameID + "' value='Play'>");
 					out.println("    <input type='submit' name='d" + gameID + "' id='d" + gameID + "' value='Delete' onclick='return confirm(\"Are you sure?\");' " + disabled + ">");
 					out.println("  </td>");
 					fileCount++;

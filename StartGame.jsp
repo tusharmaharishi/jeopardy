@@ -4,25 +4,35 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
+      <script type='text/javascript' src='http://localhost:8080/Jeopardy/InputValidation.js'></script>
+      <script>
+      	function setFocus() {
+      		document.getElementById("numTeams").focus();
+      	}
+      </script> 
+
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Start Game</title>
 </head>
-<body>
+<body onLoad='setFocus()'>
 
 	<h1 align='center'>Start Game</h1>
 
 	<!-- Create form for number of teams -->
-	<form action='http://localhost:8080/Jeopardy/PlayGame.jsp' method='post' > 
-		Number of Teams: <input type='text' name='numTeams' id='numTeams'>
+	<form action='http://localhost:8080/Jeopardy/PlayGame.jsp' method='post' align='center' > 
+		Number of Teams: <input type='text' name='numTeams' id='numTeams' onkeyup='inputValidation(this.value)'>
 		<br>
-		<input type='submit' name='submit' id='submit' value='submit'>
+		<p><span id='errorMessage'></span></p>
+		<input type='submit' name='submit' id='submit' value='Start'>
 	</form>
 	
-	<!-- detail the rules -->
+	<!-- detail the rules
 	<h3> Rules </h3>
 	1. This is the first rule <br>
 	2. This is the second rule <br>
-	3. This is the third rule <br>	 
+	3. This is the third rule <br>	
+	--> 
 
 <%
 	

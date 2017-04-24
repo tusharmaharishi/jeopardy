@@ -7,8 +7,9 @@ function isPositiveInteger(str) {
 
 function inputValidation(input) {
 
-	if ((input.length == 0) || (isPositiveInteger(input))) {
+	if ((isPositiveInteger(input))) {
 		document.getElementById("errorMessage").innerHTML = "";
+		document.getElementById("submit").disabled = false;
 		return;
 	}
 
@@ -43,6 +44,7 @@ function stateChanged() {
 	if (xmlhttp.readyState == 4) {
 		// Update the HTML DOM
 		document.getElementById("errorMessage").innerHTML = xmlhttp.responseText;
+		document.getElementById("submit").disabled = true;
 	}
 }
 

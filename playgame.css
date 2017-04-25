@@ -1,0 +1,25 @@
+body {
+	background-color: #021072;
+	color: #d69f4c;
+	font-family: 'Lato', sans-serif;
+	text-align: center;
+	position: relative;
+}
+
+.gameinfo {
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.50);
+	width: 12%;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin: 10px;
+	float: right;
+}
+
+.gameboard-div {
+	width: 80%;
+	margin-top: 10%;
+	margin-bottom: 5%;
+	float: left;
+}

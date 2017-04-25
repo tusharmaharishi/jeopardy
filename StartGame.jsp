@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
+	  <link rel='stylesheet' type='text/css' href='http://localhost:8080/Jeopardy/startgame.css'>
       <script type='text/javascript' src='http://localhost:8080/Jeopardy/InputValidation.js'></script>
       <script>
       	function setFocus() {
@@ -21,7 +21,7 @@
 
 	<!-- Create form for number of teams -->
 	<form action='http://localhost:8080/Jeopardy/PlayGame.jsp' method='post' align='center' > 
-		Number of Teams: <input type='text' name='numTeams' id='numTeams' onkeyup='inputValidation(this.value)'>
+		Number of Teams: <br><br> <input type='text' name='numTeams' id='numTeams' onkeyup='inputValidation(this.value)'>
 		<br>
 		<p><span id='errorMessage'></span></p>
 		<input type='submit' name='submit' id='submit' value='Start'>

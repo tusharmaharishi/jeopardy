@@ -10,17 +10,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel='stylesheet' type='text/css' href='http://localhost:8080/Jeopardy/playgame.css'>
 <title>Play Game</title>
 </head>
 <body>	
 	<%
 			// begin reading from file and display initial information (creator/gameID) to top of the screen
-			Scanner sc = new Scanner(new File("/Users/tusharmaharishi/Documents/workspace2/Jeopardy/src/GameData/" + (String) session.getAttribute("filename") + ".txt"));
+			Scanner sc = new Scanner(new File("/Users/hanniephammie/Documents/workspace2/Jeopardy/src/GameData/" + (String) session.getAttribute("filename") + ".txt"));
+			out.println("<div class='gameinfo'>");
 			out.println("Creator: " + sc.nextLine());
 			out.println("<br>");
 			out.println("GameID: " + sc.nextLine());
 			out.println("<br>");
 			out.println("<br>");
+			out.println("</div>");
 			
 			// create lists to hold game information
 			ArrayList<String> questionList = new ArrayList<String>();
@@ -77,6 +80,7 @@
 			}
 			
 			// start creating HTML table for game board
+			out.println("<div class='gameboard-div'>");
 			out.println("		<form action='QuestionInfo.jsp' method='post'>");
 			out.println("			<table border='1px solid black' cellspacing='2' cellpadding='5' width='75%' align='center'>");
 			for(int x = 0; x < board.length; x++) {
@@ -90,7 +94,7 @@
 					
 					// create new column with buttons for each score, only if that question has not been selected before
 					if (board[x][y] != -1 && !completed.containsKey(data)) {
-						out.println("		<td align='center'><input type='submit' name='" + data + "' value='" + board[x][y] + "'/></td>");
+						out.println("		<td align='center'><input type='submit' style='width:100%' name='" + data + "' value='" + board[x][y] + "'/></td>");
 					} 
 					else
 						out.println("		<td align='center'><b>" + "-" + "</b></td>");
@@ -101,6 +105,7 @@
 			// finish the table
 			out.println("			</table>");
 			out.println("		</form>");
+			/* out.println("</div>"); */
 
 			// retrieve numTeams from StartGame.jsp and insert it into session's attributes to make it accessable across all files
 			if (request.getParameter("numTeams") != null) {
@@ -128,7 +133,7 @@
 	<form action='http://localhost:8080/Jeopardy/JeopardyBrowse' method='get' align='center'>
 		<input type='submit' value='Quit'/>
 	</form>
-
+	</div>
 </body>
 </html>
 

@@ -1,4 +1,3 @@
-<%@ page import="jeopardyBeans.*" %>
 <%@ page import="java.util.ArrayList" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -12,6 +11,7 @@
 	<%
 	
 		// Because this page is used as a footer for multiple pages, it refreshes the score upon submission and redirects to the current page
+		out.println("<div class='scores-div'>");
 		out.println("	<br>");
 		out.println("	<form action='" + (String) session.getAttribute("currPage") + "' method='post'>");
 				

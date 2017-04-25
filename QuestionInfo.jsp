@@ -8,6 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel='stylesheet' type='text/css' href='http://localhost:8080/Jeopardy/questioninfo.css'>
 <title>Question Info</title>
 </head>
 <body>

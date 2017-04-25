@@ -9,14 +9,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel='stylesheet' type='text/css' href='http://localhost:8080/Jeopardy/playgame.css'>
-<title>Play Game</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link rel='stylesheet' type='text/css' href='http://localhost:8080/Jeopardy/playgame.css'>
+	<title>Play Game</title>
 </head>
 <body>	
 	<%
 			// begin reading from file and display initial information (creator/gameID) to top of the screen
-			Scanner sc = new Scanner(new File("/Users/hanniephammie/Documents/workspace2/Jeopardy/src/GameData/" + (String) session.getAttribute("filename") + ".txt"));
+			Scanner sc = new Scanner(new File("/Users/tusharmaharishi/Documents/workspace2/Jeopardy/src/GameData/" + (String) session.getAttribute("filename") + ".txt"));
 			out.println("<div class='gameinfo'>");
 			out.println("Creator: " + sc.nextLine());
 			out.println("<br>");
@@ -24,6 +24,11 @@
 			out.println("<br>");
 			out.println("<br>");
 			out.println("</div>");
+			
+			out.println("<br>");
+			out.println("<br>");
+			out.println("<br>");
+			out.println("<h1>Jeopardy!</h1>");
 			
 			// create lists to hold game information
 			ArrayList<String> questionList = new ArrayList<String>();
